@@ -8,26 +8,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-$stats = array(
-	array(
-		'value' => '4',
-		'suffix' => 'yrs',
-		'label' => __( 'Experience', 'usable-starter' ),
-	),
-	array(
-		'value' => '40+',
-		'label' => __( 'Projects Delivered', 'usable-starter' ),
-	),
-	array(
-		'value' => '2',
-		'label' => __( 'Platforms Mastered', 'usable-starter' ),
-	),
-	array(
-		'value' => '100%',
-		'label' => __( 'Client Satisfaction', 'usable-starter' ),
-	),
-);
 ?>
 <section id="home" class="home-hero portfolio-hero">
 	<div class="grid-bg" aria-hidden="true"></div>
@@ -59,20 +39,6 @@ $stats = array(
 			<a class="button button--ghost" href="#contact">
 				<?php esc_html_e( 'Get In Touch', 'usable-starter' ); ?>
 			</a>
-		</div>
-
-		<div class="hero-stats">
-			<?php foreach ( $stats as $stat ) : ?>
-				<div class="hero-stat">
-					<div class="hero-stat__value">
-						<?php echo esc_html( $stat['value'] ); ?>
-						<?php if ( ! empty( $stat['suffix'] ) ) : ?>
-							<span><?php echo esc_html( $stat['suffix'] ); ?></span>
-						<?php endif; ?>
-					</div>
-					<div class="hero-stat__label"><?php echo esc_html( $stat['label'] ); ?></div>
-				</div>
-			<?php endforeach; ?>
 		</div>
 	</div>
 
