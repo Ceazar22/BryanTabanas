@@ -18,3 +18,4 @@ require_once USABLE_STARTER_DIR . '/inc/assets.php';
 require_once USABLE_STARTER_DIR . '/inc/security.php';
 require_once USABLE_STARTER_DIR . '/inc/template-tags.php';
 require_once USABLE_STARTER_DIR . '/inc/customizer.php';
+require_once USABLE_STARTER_DIR . '/inc/contact.php';

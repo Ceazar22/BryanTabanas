@@ -42,13 +42,6 @@
 		});
 	}
 
-	document.querySelectorAll('.contact-form').forEach(function (form) {
-		form.addEventListener('submit', function (event) {
-			event.preventDefault();
-			form.reset();
-		});
-	});
-
 	const canvas = document.querySelector('.hero-canvas');
 
 	if (canvas) {

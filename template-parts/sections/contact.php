@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $email        = 'bryanceazartabanas@gmail.com';
 $linkedin_url = 'https://www.linkedin.com/in/bryan-ceazar-tabanas-0a8b83232/';
 $cv_url       = USABLE_STARTER_URI . '/assets/files/bryan-ceazar-tabanas-cv.pdf';
+$contact_status = isset( $_GET['contact_status'] ) ? sanitize_key( wp_unslash( $_GET['contact_status'] ) ) : '';
 ?>
 <section id="contact" class="portfolio-section contact-section">
 	<div class="section-shell">
@@ -39,7 +40,18 @@ $cv_url       = USABLE_STARTER_URI . '/assets/files/bryan-ceazar-tabanas-cv.pdf'
 				</div>
 			</div>
 
-			<form class="contact-form" action="#" method="post">
+			<form class="contact-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post">
+				<input type="hidden" name="action" value="usable_starter_contact">
+				<?php wp_nonce_field( 'usable_starter_contact', 'usable_starter_contact_nonce' ); ?>
+				<label class="form-honeypot" aria-hidden="true">
+					<span><?php esc_html_e( 'Website', 'usable-starter' ); ?></span>
+					<input type="text" name="website" tabindex="-1" autocomplete="off">
+				</label>
+				<?php if ( 'success' === $contact_status ) : ?>
+					<p class="form-notice form-notice--success"><?php esc_html_e( 'Thanks, your message has been sent.', 'usable-starter' ); ?></p>
+				<?php elseif ( 'error' === $contact_status ) : ?>
+					<p class="form-notice form-notice--error"><?php esc_html_e( 'Sorry, something went wrong. Please check the form and try again.', 'usable-starter' ); ?></p>
+				<?php endif; ?>
 				<div class="field-row">
 					<label>
 						<span><?php esc_html_e( 'Name', 'usable-starter' ); ?></span>

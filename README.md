@@ -45,3 +45,22 @@ For a new project-specific page template:
 - Use `wp_enqueue_script()` and `wp_enqueue_style()` in `inc/assets.php`; do not hardcode asset tags in templates.
 - Keep custom form processing nonce-protected and permission-aware.
 - Prefer WordPress APIs for sanitizing, escaping, querying, and redirects.
+
+## Contact Form SMTP
+
+The contact form sends through `wp_mail()` and uses SMTP when credentials are set in `inc/smtp-config.php`, `wp-config.php`, or environment variables.
+
+`inc/smtp-config.php` is ignored by git and guarded against direct browser access. Use `inc/smtp-config.example.php` as the template.
+
+```php
+define( 'USABLE_STARTER_SMTP_HOST', 'smtp.example.com' );
+define( 'USABLE_STARTER_SMTP_PORT', 587 );
+define( 'USABLE_STARTER_SMTP_USER', 'your-smtp-username' );
+define( 'USABLE_STARTER_SMTP_PASS', 'your-smtp-password' );
+define( 'USABLE_STARTER_SMTP_SECURE', 'tls' );
+define( 'USABLE_STARTER_SMTP_FROM', 'verified-sender@example.com' );
+define( 'USABLE_STARTER_SMTP_FROM_NAME', 'Bryan Ceazar Tabanas' );
+define( 'USABLE_STARTER_CONTACT_RECIPIENT', 'bryanceazartabanas@gmail.com' );
+```
+
+The same names also work as environment variables. Use a sender email verified by your SMTP provider.
